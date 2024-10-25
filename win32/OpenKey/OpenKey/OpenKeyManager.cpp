@@ -54,7 +54,7 @@ void OpenKeyManager::freeEngine() {
 }
 
 bool OpenKeyManager::checkUpdate(string& newVersion) {
-	wstring dataW = OpenKeyHelper::getContentOfUrl(L"https://raw.githubusercontent.com/tuyenvm/OpenKey/master/version.json");
+	wstring dataW = OpenKeyHelper::getContentOfUrl(L"https://raw.githubusercontent.com/thamdavies/TnKey/main/version.json");
 	string data = wideStringToUtf8(dataW);
 
 	//simple parse

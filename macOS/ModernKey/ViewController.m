@@ -32,6 +32,7 @@ extern int vAllowConsonantZFWJ;
 extern int vQuickStartConsonant;
 extern int vQuickEndConsonant;
 extern int vRememberCode;
+extern int vOtherLanguage;
 extern int vTempOffOpenKey;
 extern int vShowIconOnDock;
 extern int vAutoCapsMacro;
@@ -59,7 +60,7 @@ extern int vPerformLayoutCompat;
     self.retryButton.enabled = NO;
  
     NSRect parentRect = self.viewParent.frame;
-    parentRect.size.height = 460;
+    parentRect.size.height = 490;
     self.viewParent.frame = parentRect;
     
     //set correct tabgroup
@@ -333,6 +334,12 @@ extern int vPerformLayoutCompat;
     vRememberCode = (int)val;
 }
 
+- (IBAction)onOtherLanguage:(id)sender {
+    
+    NSInteger val = [self setCustomValue:sender keyToSet:@"vOtherLanguage"];
+    vOtherLanguage = (int)val;
+}
+
 - (IBAction)onAutoCapsMacro:(id)sender {
     NSInteger val = [self setCustomValue:sender keyToSet:@"vAutoCapsMacro"];
     vAutoCapsMacro = (int)val;
@@ -437,6 +444,9 @@ extern int vPerformLayoutCompat;
     
     value = [[NSUserDefaults standardUserDefaults] integerForKey:@"vRememberCode"];
     self.RememberTableCode.state = value ? NSControlStateValueOn : NSControlStateValueOff;
+
+    value = [[NSUserDefaults standardUserDefaults] integerForKey:@"vOtherLanguage"];
+    self.OtherLanguage.state = value ? NSControlStateValueOn : NSControlStateValueOff;
     
     value = [[NSUserDefaults standardUserDefaults] integerForKey:@"vTempOffOpenKey"];
     self.TempOffOpenKey.state = value ? NSControlStateValueOn : NSControlStateValueOff;
